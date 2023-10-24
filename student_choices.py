@@ -11,7 +11,7 @@ lowest_leftover = len(all_responses)
 topics = dictReader.fieldnames
 topics.remove('Timestamp')
 topics.remove('Student Number')
-# topics.remove('I have checked my EIGHT- (or SEVEN-) digit student number and it is correct')
+topics.remove('I have checked my EIGHT- (or SEVEN-) digit student number and it is correct')
 
 response_students = []
 
