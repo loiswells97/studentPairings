@@ -2,7 +2,7 @@ import csv
 from random import sample
 import re
 
-dictReader = csv.DictReader(open("BI2331 Physiology Assessment 01 Topic Preferences - Form Responses 1-2.csv"))
+dictReader = csv.DictReader(open("BI2331 Physiology Assessment 01 Topic Preferences 2023 - Form Responses 1-2.csv"))
 
 all_responses = list(dictReader)
 best_pairings = {}
@@ -11,14 +11,14 @@ lowest_leftover = len(all_responses)
 topics = dictReader.fieldnames
 topics.remove('Timestamp')
 topics.remove('Student Number')
-# topics.remove('I have checked my EIGHT- (or SEVEN-) digit student number and it is correct')
+topics.remove('I have checked my EIGHT- (or SEVEN-) digit student number and it is correct')
 
 response_students = []
 
 for response in all_responses:
     response_students.append(response['Student Number'])
 
-for i in range(10000):
+for i in range(1000000):
 
     if i%10000 == 0:
         print(i)
@@ -118,7 +118,3 @@ with open('unnamed_allocations.csv', 'w') as f:
         topic_number = split_topic[0].replace('Topic ', '')
         topic_title = split_topic[1]
         writer.writerow([student, topic_number, topic_title])
-
-# Things left to do
-# - Put a header on the student pairings csv
-# - Indicate the students in the student pairings csv that made a response but didn't get one of their choices, possibly by performing the lookup from the responses instead of the allocations, and then looking up the topic from the allocations
