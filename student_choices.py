@@ -45,7 +45,7 @@ for i in range(1000000):
                     topic_students.append(response['Student Number'])
 
     # Number should be the number of places available in each topic
-            places_remaining = 7-len(pairings[topic])
+            places_remaining = 6-len(pairings[topic])
             topic_students = sample(topic_students, min(places_remaining, len(topic_students)))
 
             for student in topic_students:
