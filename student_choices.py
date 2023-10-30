@@ -84,7 +84,7 @@ with open('student_numbers.csv', 'r') as f:
         writer.writerow([*header, 'Topic Number', 'Topic Title'])
 
         for row in reader:
-            student_number = row[0]
+            student_number = row[0][:-2]
             possible_student_number_entries = [student_number, f"c{student_number}", f"C{student_number}", f"{student_number}/1", f"c{student_number}/1", f"C{student_number}/1"]
 
             topic = ''
@@ -122,5 +122,6 @@ with open('unnamed_allocations.csv', 'w') as f:
         if len(split_topic) > 1:
             topic_title = split_topic[1]
         else:
+            print(student, cleaned_topic)
             topic_title = '?'
         writer.writerow([student, topic_number, topic_title])
