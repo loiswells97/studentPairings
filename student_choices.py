@@ -2,7 +2,7 @@ import csv
 from random import sample
 import re
 
-dictReader = csv.DictReader(open("BI2331 Physiology Assessment 01 Topic Preferences 2023 - Form Responses 1-2.csv"))
+dictReader = csv.DictReader(open("BI2331 Physiology News & Views Assessment Sign-up Form 2023.csv"))
 
 all_responses = list(dictReader)
 best_pairings = {}
@@ -119,5 +119,8 @@ with open('unnamed_allocations.csv', 'w') as f:
         cleaned_topic = re.findall(r'\[.*?\]', topic)[0].replace('[', '').replace(']', '')
         split_topic = cleaned_topic.split(": ")
         topic_number = split_topic[0].replace('Topic ', '')
-        topic_title = split_topic[1]
+        if split_topic[1]:
+            topic_title = split_topic[1]
+        else:
+            topic_title = '?'
         writer.writerow([student, topic_number, topic_title])
