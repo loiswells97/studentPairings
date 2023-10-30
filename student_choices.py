@@ -102,7 +102,11 @@ with open('student_numbers.csv', 'r') as f:
                 cleaned_topic = re.findall(r'\[.*?\]', topic)[0].replace('[', '').replace(']', '')
                 split_topic = cleaned_topic.split(": ")
                 topic_number = split_topic[0].replace('Topic ', '')
-                topic_title = split_topic[1]
+                if len(split_topic > 1):
+                    topic_title = split_topic[1]
+                else:
+                    print(cleaned_topic)
+                    topic_title = '?'
             elif topic == '*':
                 topic_number = '*'
                 topic_title = '***'
