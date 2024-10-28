@@ -84,7 +84,9 @@ with open('student_numbers.csv', 'r') as f:
         writer.writerow([*header, 'Topic Number', 'Topic Title'])
 
         for row in reader:
-            student_number = row[0][:-2]
+            # If the student numbers file has /1 etc on the end of the student numbers, use this line to filter it out
+            # student_number = row[0][:-2]
+            student_number = row[0]
             possible_student_number_entries = [student_number, f"c{student_number}", f"C{student_number}", f"{student_number}/1", f"c{student_number}/1", f"C{student_number}/1"]
 
             topic = ''
